@@ -1,0 +1,74 @@
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+*/
+
+void fetchTheStars()
+{
+    turnLeft();
+    repeat(10)
+    {
+        repeat(5)
+        {
+            moveForward();
+        }
+        if(onBeeper())
+        {
+            pickBeeper();
+            turnAround();
+            repeat(5)
+            {
+                moveForward();
+            }
+            dropBeeper();
+            if(leftIsClear())
+            {
+                turnLeft();
+            }
+        }
+        else
+        {
+            moveForward();
+            if(onBeeper())
+            {
+                pickBeeper();
+                turnAround();
+                repeat(6)
+                {
+                    moveForward();
+                }
+                dropBeeper();
+                if(leftIsClear())
+                {
+                    turnLeft();
+                }
+            }
+            
+            else
+            {
+                moveForward();
+                pickBeeper();
+                turnAround();
+                repeat(7)
+                {
+                    moveForward();
+                }
+                dropBeeper();
+                if(leftIsClear())
+                {
+                    turnLeft();
+                }
+            }
+        }
+        if(leftIsClear())
+        {
+            moveForward();
+        }
+        turnLeft();
+    }
+    
+}

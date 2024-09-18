@@ -1,0 +1,79 @@
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+*/
+
+void secureTheCave()
+{
+    turnLeft();
+    repeat(10)
+    {
+        while(!onBeeper())
+        {
+            moveForward();
+        }
+        if(!frontIsClear())
+        {
+            turnAround();
+            pickBeeper();
+            while(frontIsClear())
+            {
+                moveForward();
+            }
+            turnAround();
+            dropBeeper();
+            moveForward();
+        }
+        else
+        {
+            moveForward();
+            if(!frontIsClear())
+            {
+                turnAround();
+                pickBeeper();
+                moveForward();
+                pickBeeper();
+                while(frontIsClear())
+                {
+                    moveForward();
+                }
+                turnAround();
+                dropBeeper();
+                moveForward();
+                dropBeeper();
+                moveForward();
+            }
+            else
+            {
+                moveForward();
+                turnAround();
+                pickBeeper();
+                moveForward();
+                pickBeeper();
+                moveForward();
+                pickBeeper();
+                while(frontIsClear())
+                {
+                    moveForward();
+                }
+                turnAround();
+                dropBeeper();
+                moveForward();
+                dropBeeper();
+                moveForward();
+                dropBeeper();
+                moveForward();
+            }
+        }
+        turnRight();
+        if(frontIsClear())
+        {
+            moveForward();
+            turnLeft();
+        }
+    }
+}
